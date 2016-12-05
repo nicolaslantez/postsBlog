@@ -14,6 +14,9 @@ var noticias = [
   {id: "3",title: "Explicaron que la fiscal viajera tiene tres o cuatro pedidos de licencias engañosas anteriores",lead:"El escándalo por la fiscal viajera Anabel Orozco no quedó soslayado en el acto donde la Suprema Corte de Mendoza quedó completa con el juramento de José Valerio.",body:"El flamante integrante de la Corte dijo que no podía opinar sobre la actitud de la fiscal porque debía integrar el Jury si este prosperaba. Indicó que dentro del Poder Judicial es necesario transparentar todos los procesos, darle acceso a los mendocinos para terminar con este tipo de problemas.A su turno, el gobernador explicó una vez más que preferiría que el Jury prosperara para que Orozco sea sancionada, pero indicó que, de no ser así, no habrá más remedio que aceptar su renuncia, en un claro mensaje para que en esta oportunidad exista una sanción para un funcionario de la Justicia, tal cual viene reclamando desde hace tiempo, sobre todo cuando pidió el mismo proceso para otro fiscal, Fabricio Sidoti.En ese mismo sentido, durante su extenso discurso, comparó esta necesidad de dar el ejemplo por parte de quién tienen responsabilidades dentro de la función pública, con lo sucedido con los docentes y el ítem aula.Resulta difícil exigirle a un docente que cumpla con su tarea, que no fragüen certificados médicos, si una fiscal se va a Brasil con su certificado trucho y además, cuando ya ha tenido conductas anteriores similares y no ha tenido sanción alguna; no es buena señal, indicó Cornejo."}
 ];
 
+app.get('/',function(req,res){
+	res.redirect(302, "/posts"); 
+})
 app.get('/posts', function (req, res) {
   	res.json(noticias);
 });
