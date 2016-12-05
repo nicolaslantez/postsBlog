@@ -30,13 +30,22 @@ app.get('/posts/new', function (req, res) {
 app.get('/posts/:id',function(req,res){
 	if(req.params.id >= noticias.length+1|| req.params.id <= 0) {
     	res.statusCode = 404;
-    	return res.send('Error 404: News not found');
+    	return res.send('Noticia no encontrada');
   	}  
 	var noticia = noticias[req.params.id-1];
   	res.json(noticia);
 });
 
 app.post('/posts/:id',upload.array(),function(req, res, next) {
+	if(req.body.title == ""){
+		return res.send("Debe ingresar un titulo");
+	}
+	if(req.body.lead == ""){
+		return res.send("Debe ingresar un resumen");
+	}
+	if(req.body.body == ""){
+		return res.send("Debe ingresar un cuerpo");
+	}
 	var newNoticia = {
     	id : req.params.id,
     	title : req.body.title,
