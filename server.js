@@ -54,17 +54,17 @@ app.post('/posts/:id',upload.array(),function(req, res, next) {
   	}; 
  
 	noticias.push(newNoticia);
-  	res.json(true);
+  	res.json("Noticia cargada!");
 });
 
 app.delete('/posts/:id', function (req, res) {
   if(req.params.id >= noticias.length+1|| req.params.id <= 0) {
     	res.statusCode = 404;
-    	return res.send('Error 404: News not found');
+    	return res.send('Error 404: Noticia no encontrada');
   	}  
 	var noticia = noticias[req.params.id-1];
   	noticias.pop(noticia);
-  	res.json("Deleted")
+  	res.json("Noticia eliminada!")
 });
 
 
